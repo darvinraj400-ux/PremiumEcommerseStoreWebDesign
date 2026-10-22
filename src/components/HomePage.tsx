@@ -332,7 +332,7 @@ export default function HomePage() {
             >
               <div className="aspect-[4/5] rounded-xl overflow-hidden">
                 <FallbackImage
-                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop&q=80"
+                  src="https://image.qwenlm.ai/generated-images/6c51d580-f5a1-44c8-913c-017492da7b4f/_result.png"
                   alt="Our philosophy"
                   className="w-full h-full object-cover"
                   loading="lazy"
