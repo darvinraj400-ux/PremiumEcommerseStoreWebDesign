@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import FallbackImage from './FallbackImage';
 
 export default function CartDrawer() {
   const { items, isOpen, toggleCart, removeItem, updateQuantity, subtotal, itemCount } = useCart();
@@ -74,7 +75,7 @@ export default function CartDrawer() {
                           className="flex gap-4 pb-4 border-b border-divider last:border-0"
                         >
                           <div className="w-20 h-24 sm:w-24 sm:h-28 rounded-lg overflow-hidden bg-ivory-dark flex-shrink-0">
-                            <img
+                            <FallbackImage
                               src={item.product.images[0]}
                               alt={item.product.name}
                               className="w-full h-full object-cover"

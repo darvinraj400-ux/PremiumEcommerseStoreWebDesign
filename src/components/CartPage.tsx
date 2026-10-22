@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, Plus, X, ShoppingBag, ArrowLeft } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import FallbackImage from './FallbackImage';
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, subtotal, itemCount, clearCart } = useCart();
@@ -63,7 +64,7 @@ export default function CartPage() {
                   >
                     <Link to={`/product/${item.product.id}`} className="flex-shrink-0">
                       <div className="w-24 h-28 sm:w-32 sm:h-36 rounded-lg overflow-hidden bg-ivory-dark">
-                        <img
+                        <FallbackImage
                           src={item.product.images[0]}
                           alt={item.product.name}
                           className="w-full h-full object-cover"

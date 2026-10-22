@@ -5,6 +5,7 @@ import { Search, SlidersHorizontal, X, ShoppingBag, Heart, ChevronDown } from 'l
 import { products, categories, collections } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
+import FallbackImage from './FallbackImage';
 
 type SortOption = 'featured' | 'price-low' | 'price-high' | 'newest';
 
@@ -281,7 +282,7 @@ export default function ProductList() {
                 >
                   <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-ivory-dark mb-4">
                     <Link to={`/product/${product.id}`}>
-                      <img
+                      <FallbackImage
                         src={product.images[0]}
                         alt={product.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

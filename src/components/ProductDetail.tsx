@@ -5,6 +5,7 @@ import { Heart, ShoppingBag, Minus, Plus, ChevronLeft, ChevronRight } from 'luci
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
+import FallbackImage from './FallbackImage';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -107,6 +108,7 @@ export default function ProductDetail() {
                   transition={{ duration: 0.3 }}
                   className="w-full h-full object-cover cursor-grab active:cursor-grabbing"
                   draggable={false}
+                  onError={(e) => { (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDQwMCA1MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1MDAiIGZpbGw9IiNGMEVERThCIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM4QTg1ODAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0Ij5JbWFnZSBVbmF2YWlsYWJsZTwvdGV4dD48L3N2Zz4='; }}
                 />
               </AnimatePresence>
             </motion.div>
@@ -150,7 +152,7 @@ export default function ProductDetail() {
                   selectedImage === i ? 'ring-2 ring-accent' : 'opacity-60 hover:opacity-100'
                 }`}
               >
-                <img src={img} alt="" className="w-full h-full object-cover" />
+                <FallbackImage src={img} alt="" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>
@@ -328,7 +330,7 @@ export default function ProductDetail() {
             {relatedProducts.map(p => (
               <Link key={p.id} to={`/product/${p.id}`} className="group">
                 <div className="aspect-[3/4] rounded-xl overflow-hidden bg-ivory-dark mb-3">
-                  <img
+                  <FallbackImage
                     src={p.images[0]}
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

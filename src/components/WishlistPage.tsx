@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, X, ShoppingBag } from 'lucide-react';
 import { useWishlist } from '../context/WishlistContext';
 import { useCart } from '../context/CartContext';
+import FallbackImage from './FallbackImage';
 
 export default function WishlistPage() {
   const { items, removeItem } = useWishlist();
@@ -55,7 +56,7 @@ export default function WishlistPage() {
               >
                 <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-ivory-dark mb-4">
                   <Link to={`/product/${product.id}`}>
-                    <img
+                    <FallbackImage
                       src={product.images[0]}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

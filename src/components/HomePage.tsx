@@ -6,6 +6,7 @@ import { products, collections } from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import { Heart, ShoppingBag } from 'lucide-react';
+import FallbackImage from './FallbackImage';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -31,7 +32,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       className="group"
     >
       <div className="relative aspect-[3/4] rounded-xl overflow-hidden bg-ivory-dark mb-4">
-        <img
+        <FallbackImage
           src={product.images[0]}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -105,8 +106,8 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[85vh] sm:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&q=80"
+          <FallbackImage
+            src="https://image.qwenlm.ai/generated-images/071c036a-3760-46e4-bd35-9dbfafacf4ff/_result.png"
             alt=""
             className="w-full h-full object-cover"
           />
@@ -214,7 +215,7 @@ export default function HomePage() {
           {/* Large featured card */}
           <motion.div variants={itemVariants} className="sm:col-span-2 sm:row-span-2">
             <Link to="/shop?collection=daily-rituals" className="group block relative aspect-[4/3] sm:aspect-auto sm:h-full rounded-xl overflow-hidden">
-              <img
+              <FallbackImage
                 src={collections[0].image}
                 alt={collections[0].name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -233,7 +234,7 @@ export default function HomePage() {
           {collections.slice(1, 4).map((collection) => (
             <motion.div key={collection.id} variants={itemVariants}>
               <Link to={`/shop?collection=${collection.id}`} className="group block relative aspect-[4/3] rounded-xl overflow-hidden">
-                <img
+                <FallbackImage
                   src={collection.image}
                   alt={collection.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -330,8 +331,8 @@ export default function HomePage() {
               className="relative"
             >
               <div className="aspect-[4/5] rounded-xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&q=80"
+                <FallbackImage
+                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=800&auto=format&fit=crop&q=80"
                   alt="Our philosophy"
                   className="w-full h-full object-cover"
                   loading="lazy"
